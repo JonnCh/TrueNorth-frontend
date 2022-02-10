@@ -9,8 +9,9 @@ import TaskPage from './routes/tasks';
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="tasks" element={<TaskPage />} />
+      <Route path="/" element={<App />}>
+        <Route path="/tasks" element={<TaskPage />} />
+      </Route>
     </Routes>
   </BrowserRouter>,
   document.getElementById('root')

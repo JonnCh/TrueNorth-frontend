@@ -1,7 +1,12 @@
 import './App.css';
-import { Link } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom'
+import Navigation from './components/Navigation/Navigation';
+import { Typography } from '@mui/material';
 
-function App() {
+const App = () => {
+
+  const navigate = useNavigate();
+
   return (
     <div className="App">
       <div>
@@ -12,7 +17,8 @@ function App() {
             paddingBottom: "1rem"
           }}
         >
-          <Link to="/tasks">Tasks</Link>
+          <Outlet />
+          <Navigation />
         </nav>
       </div>
     </div>

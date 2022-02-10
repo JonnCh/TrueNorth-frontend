@@ -2,11 +2,11 @@ import { Box, Button, Modal, Typography } from '@mui/material';
 import { Task } from '../../models/Task';
 
 export interface TaskModalComponentProps {
-task: Task;
-number: Number;
-open: boolean;
-setOpen: Function;
-onComplete: (t: Task) => void;
+  task: Task;
+  number: Number;
+  open: boolean;
+  setOpen: Function;
+  onComplete: (t: Task) => void;
 }
 
 const TaskModalComponent = ({ task, number, open, setOpen, onComplete }: TaskModalComponentProps) => {
@@ -20,7 +20,7 @@ const TaskModalComponent = ({ task, number, open, setOpen, onComplete }: TaskMod
   };
 
   return (<Modal
-    
+
     open={open}
     onClose={(event: object, reason: string) => {
       console.log(reason);
@@ -48,6 +48,9 @@ const TaskModalComponent = ({ task, number, open, setOpen, onComplete }: TaskMod
         <tr />
         {task.title}
       </Typography>
+      {task.status === "Completed" && <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+        {`Completed on: ${new Date(task.updatedAt).toLocaleDateString('en-US')}`}
+      </Typography>}
       <Typography style={{
         display: 'flex',
         flexDirection: 'row-reverse',
